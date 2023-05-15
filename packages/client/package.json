@@ -1,8 +1,8 @@
 {
-  "name": "streamr-client",
+  "name": "@concertodao/streamr-client",
   "version": "8.1.0",
   "description": "JavaScript client library for Streamr",
-  "private": true,
+  "private": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/streamr-dev/network.git",
