@@ -57,7 +57,7 @@ export class StreamrClient {
     private readonly streamStorageRegistry: StreamStorageRegistry
     private readonly storageNodeRegistry: StorageNodeRegistry
     private readonly loggerFactory: LoggerFactory
-    private readonly streamIdBuilder: StreamIDBuilder
+    protected readonly streamIdBuilder: StreamIDBuilder
     private readonly eventEmitter: StreamrClientEventEmitter
 
     constructor(
