@@ -7,7 +7,7 @@ import { StreamMessage, StreamPartID, MessageRef } from '@streamr/protocol'
 import { PushBuffer } from '../utils/PushBuffer'
 import { Signal } from '../utils/Signal'
 
-import { Resends } from './Resends'
+import { IResends } from './Resends'
 import { MessageStream } from './MessageStream'
 import { StrictStreamrClientConfig } from '../Config'
 import OrderingUtil from './ordering/OrderingUtil'
@@ -22,7 +22,7 @@ import { LoggerFactory } from '../utils/LoggerFactory'
 export class OrderMessages {
 
     private config: StrictStreamrClientConfig
-    private resends: Resends
+    private resends: IResends
     private readonly streamPartId: StreamPartID
     private readonly logger: Logger
     private stopSignal = Signal.once()
@@ -36,7 +36,7 @@ export class OrderMessages {
 
     constructor(
         config: StrictStreamrClientConfig,
-        resends: Resends,
+        resends: IResends,
         streamPartId: StreamPartID,
         loggerFactory: LoggerFactory
     ) {

@@ -11,7 +11,7 @@ import { MessageStream } from './MessageStream'
 import { Validator } from '../Validator'
 import { Decrypt } from './Decrypt'
 import { StrictStreamrClientConfig } from '../Config'
-import { Resends } from './Resends'
+import { IResends } from './Resends'
 import { DestroySignal } from '../DestroySignal'
 import { StreamRegistryCached } from '../registry/StreamRegistryCached'
 import { MsgChainUtil } from './MsgChainUtil'
@@ -21,7 +21,7 @@ import { GroupKeyManager } from '../encryption/GroupKeyManager'
 export interface SubscriptionPipelineOptions {
     streamPartId: StreamPartID
     loggerFactory: LoggerFactory
-    resends: Resends
+    resends: IResends
     groupKeyManager: GroupKeyManager
     streamRegistryCached: StreamRegistryCached
     destroySignal: DestroySignal

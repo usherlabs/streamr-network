@@ -71,8 +71,26 @@ function isResendRange<T extends ResendRangeOptions>(options: any): options is T
     return options && typeof options === 'object' && 'from' in options && 'to' in options && options.to && options.from != null
 }
 
+export interface IResends {
+    range(streamPartId: StreamPartID, {
+        fromTimestamp,
+        fromSequenceNumber = MIN_SEQUENCE_NUMBER_VALUE,
+        toTimestamp,
+        toSequenceNumber = MIN_SEQUENCE_NUMBER_VALUE,
+        publisherId,
+        msgChainId
+    }: {
+        fromTimestamp: number
+        fromSequenceNumber?: number
+        toTimestamp: number
+        toSequenceNumber?: number
+        publisherId?: EthereumAddress
+        msgChainId?: string
+    }): Promise<MessageStream>
+}
+
 @scoped(Lifecycle.ContainerScoped)
-export class Resends {
+export class Resends implements IResends {
     private readonly streamStorageRegistry: StreamStorageRegistry
     private readonly storageNodeRegistry: StorageNodeRegistry
     private readonly streamRegistryCached: StreamRegistryCached

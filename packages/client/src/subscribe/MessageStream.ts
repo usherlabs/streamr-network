@@ -20,7 +20,6 @@ export class MessageStream implements AsyncIterable<Message> {
 
     private readonly pipeline: PushPipeline<StreamMessage, StreamMessage> = new PushPipeline()
 
-    /** @internal */
     // eslint-disable-next-line @typescript-eslint/no-useless-constructor
     constructor() {
     }
@@ -28,7 +27,6 @@ export class MessageStream implements AsyncIterable<Message> {
     /**
      * Attach a legacy onMessage handler and consume if necessary.
      * onMessage is passed parsed content as first arument, and streamMessage as second argument.
-     * @internal
      */
     useLegacyOnMessageHandler(onMessage: MessageListener): this {
         this.pipeline.onMessage.listen(async (streamMessage) => {
@@ -116,7 +114,6 @@ export class MessageStream implements AsyncIterable<Message> {
         this.pipeline.onConsumed(fn)
     }
 
-    /** @internal */
     async pull(source: AsyncGenerator<StreamMessage>): Promise<void> {
         return this.pipeline.pull(source)
     }
@@ -131,7 +128,6 @@ export class MessageStream implements AsyncIterable<Message> {
         this.pipeline.end(err)
     }
 
-    /** @internal */
     endWrite(err?: Error): void {
         this.pipeline.endWrite(err)
     }

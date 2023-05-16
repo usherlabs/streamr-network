@@ -68,7 +68,8 @@ export class StreamrClient {
         const strictConfig = createStrictConfig(config)
         const authentication = createAuthentication(strictConfig)
         redactConfig(strictConfig)
-        const container = parentContainer.createChildContainer()
+        // IMPORTANT: Do not create a child container.
+        const container = parentContainer // parentContainer.createChildContainer()
         container.register(AuthenticationInjectionToken, { useValue: authentication })
         container.register(ConfigInjectionToken, { useValue: strictConfig })
         this.id = strictConfig.id

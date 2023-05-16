@@ -8,7 +8,7 @@ export { Message, MessageMetadata } from './Message'
 export { StreamrClientEvents } from './events'
 export { PublishMetadata } from './publish/Publisher'
 export { Subscription, SubscriptionEvents, } from './subscribe/Subscription'
-export type { MessageStream, MessageListener } from './subscribe/MessageStream'
+export { MessageStream, MessageListener } from './subscribe/MessageStream'
 export { ResendOptions, ResendLastOptions, ResendFromOptions, ResendRangeOptions, ResendRef } from './subscribe/Resends'
 export {
     StreamPermission,
@@ -62,3 +62,5 @@ export {
 
 export type { ConnectionInfo } from '@ethersproject/web'
 export type { ExternalProvider } from '@ethersproject/providers'
+
+export * from './exports-extra'
