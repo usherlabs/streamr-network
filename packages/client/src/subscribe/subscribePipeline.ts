@@ -78,11 +78,16 @@ export const createSubscribePipeline = (opts: SubscriptionPipelineOptions): Mess
         // validate & decrypt
         .pipe(async function* (src: AsyncGenerator<StreamMessage>) {
             setImmediate(async () => {
-                for await (const msg of src) {
-                    msgChainUtil.addMessage(msg)
+                let err: Error | undefined = undefined
+                try {
+                    for await (const msg of src) {
+                        msgChainUtil.addMessage(msg)
+                    }
+                } catch (e) {
+                    err = e
                 }
                 await msgChainUtil.flush()
-                msgChainUtil.stop()
+                msgChainUtil.stop(err)
             })
             yield* msgChainUtil
         })
