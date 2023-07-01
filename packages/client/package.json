@@ -1,5 +1,5 @@
 {
-  "name": "@concertotech/streamr-client",
+  "name": "@logsn/streamr-client",
   "version": "8.1.0",
   "description": "JavaScript client library for Streamr",
   "private": false,
